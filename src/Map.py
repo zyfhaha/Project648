@@ -4,6 +4,7 @@ from State import State
 class Map:
     def __init__(self, file):
         self.states = []
+        self.visited=[]
         x = 0
         with open(file, 'r') as f:
             for line in f:
@@ -26,6 +27,26 @@ class Map:
                     self.states[i][j].moveable[1] = 0
                 if j == self.sizey - 1 or self.states[i][j + 1].type == 1:
                     self.states[i][j].moveable[3] = 0
+
+        for i in range(len(self.states)):
+            lines=list([])
+            for j in range(len(self.states[i])):
+                lines.append(0)
+            self.visited.append(lines)
+
+    def isterminal(self,st):
+        flag=1
+        x=st.locationx
+        y=st.locationy
+        if st.moveable[0]==1 and self.visited[x-1][y]==0:
+            flag=0
+        if st.moveable[1]==1 and self.visited[x+1][y]==0:
+            flag=0
+        if st.moveable[2]==1 and self.visited[x][y-1]==0:
+            flag=0
+        if st.moveable[3]==1 and self.visited[x][y+1]==0:
+            flag=0
+        return flag
 
     def mapprint(self):
         for i in range(len(self.states)):
