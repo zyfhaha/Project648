@@ -51,5 +51,5 @@ class Map:
     def mapprint(self):
         for i in range(len(self.states)):
             for j in range(len(self.states[i])):
-                print(self.states[i][j].type, end=' ')
+                print(self.states[i][j].type,self.states[i][j].moveable,' ', end=' ')
             print()
