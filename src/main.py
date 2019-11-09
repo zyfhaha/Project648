@@ -20,3 +20,9 @@ while k<200:
     actionlist=[]
     while map.isterminal(s)==0:
         searchlist.append(s)
+        ra=random.random()
+        mvablist=[]
+        for i in range(4):
+            if s.moveable[i]==1:
+                mvablist.append(i)
+        if ra>e:
