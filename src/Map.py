@@ -49,9 +49,16 @@ class Map:
         return flag
 
     def mapprint(self):
+        moveoption1 = [-1, +1, 0, 0]
+        moveoption2 = [0, 0, -1, +1]
         for i in range(len(self.states)):
             for j in range(len(self.states[i])):
-                print(self.states[i][j].type,self.states[i][j].moveable,' ', end=' ')
+                kp=list(self.states[i][j].q)
+                kl=[round(iii,1) for iii in kp]
+                for pp in range(4):
+                    if self.states[i][j].moveable[pp]==0 or self.states[i][j].type==1:
+                        kl[pp]='*'
+                print(kl,end=' ')
             print()
 
     def refreshvisit(self):

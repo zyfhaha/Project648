@@ -12,8 +12,7 @@ k = 0
 e = 0.1
 alpha=0.5
 gama=0.9
-map.mapprint()
-while k < 2:
+while k < 200:
     sx = startx
     sy = starty
     s = map.states[sx][sy]
@@ -58,5 +57,8 @@ while k < 2:
             r=-1
         s.q[maxm]=(1-alpha)*qs+alpha*(r+gama*qs1)
         s=s1
+        if map.isterminal(s)==1:
+            print(s.locationx, ' ', s.locationy)
     k+=1
+    map.mapprint()
     print()
