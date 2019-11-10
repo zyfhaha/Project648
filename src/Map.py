@@ -53,3 +53,11 @@ class Map:
             for j in range(len(self.states[i])):
                 print(self.states[i][j].type,self.states[i][j].moveable,' ', end=' ')
             print()
+
+    def refreshvisit(self):
+        self.visited = []
+        for i in range(len(self.states)):
+            lines=list([])
+            for j in range(len(self.states[i])):
+                lines.append(0)
+            self.visited.append(lines)
