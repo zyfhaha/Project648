@@ -60,4 +60,3 @@ while k < 2:
         s=s1
     k+=1
     print()
-    print('hello world')
