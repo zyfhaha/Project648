@@ -3,7 +3,7 @@ from Map import Map
 
 
 
-map = Map('data1.txt')
+map = Map('data.txt')
 goalx = 0
 goaly = 3
 startx = 1
@@ -14,7 +14,7 @@ k = 0
 e = 0.1
 alpha=0.5
 gama=0.9
-while k < 20:
+while k < 2:
     sx = startx
     sy = starty
     s = map.states[sx][sy]
@@ -54,9 +54,9 @@ while k < 20:
             if s1.locationx==goalx and s1.locationy==goaly:
                 r=50
             else:
-                r=-50
+                r=-30
         else:
-            r=-0.1
+            r=-1
         s.q[maxm]=(1-alpha)*qs+alpha*(r+gama*qs1)
         s=s1
         if map.isterminal(s)==1:
