@@ -68,3 +68,12 @@ class Map:
             for j in range(len(self.states[i])):
                 lines.append(0)
             self.visited.append(lines)
+
+    def mprint(self):
+        for i in range(len(self.states)):
+            for j in range(len(self.states[i])):
+                if self.states[i][j].type==1:
+                    print('# ',end='')
+                else:
+                    print('  ',end='')
+            print()

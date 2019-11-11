@@ -1,10 +1,12 @@
 import random
 from Map import Map
 
-map = Map('data.txt')
-goalx = 5
-goaly = 7
-startx = 2
+
+
+map = Map('data1.txt')
+goalx = 0
+goaly = 3
+startx = 1
 starty = 0
 moveoption1 = [-1, +1, 0, 0]
 moveoption2 = [0, 0, -1, +1]
@@ -12,7 +14,7 @@ k = 0
 e = 0.1
 alpha=0.5
 gama=0.9
-while k < 200:
+while k < 20:
     sx = startx
     sy = starty
     s = map.states[sx][sy]
@@ -52,9 +54,9 @@ while k < 200:
             if s1.locationx==goalx and s1.locationy==goaly:
                 r=50
             else:
-                r=-30
+                r=-50
         else:
-            r=-1
+            r=-0.1
         s.q[maxm]=(1-alpha)*qs+alpha*(r+gama*qs1)
         s=s1
         if map.isterminal(s)==1:
